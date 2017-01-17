@@ -19,7 +19,7 @@ public class Main {
     }
 
     public static void initializeDB(EntityManager em){
-        //Initialisation d'entités de base
+        //Initialisation d'entités de base//
 
     }
 }
