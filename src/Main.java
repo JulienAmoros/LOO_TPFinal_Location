@@ -1,8 +1,5 @@
 import com.model.*;
-import javax.persistence.*;
 import java.sql.Date;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by JuAmo_000 on 17/01/2017.
@@ -10,8 +7,9 @@ import java.util.List;
 public class Main {
     public static void main(final String[] args) throws Exception {
 
-        Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
+        //Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
         //initializeDB();
+        Agency.printFlatList(Agency.getEmptyHousing());
 
         Agency.closeAgency();
     }

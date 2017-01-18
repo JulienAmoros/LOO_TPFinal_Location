@@ -1,8 +1,5 @@
 package com.model;
 
-import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -28,6 +25,10 @@ public class Agency {
 
     public static List getEmptyHousing(){
         return getEM().createQuery("from Housing where hosts = null").getResultList();
+    }
+
+    public static List getOccupiedHousing(){
+        return getEM().createQuery("from Housing where hosts != null").getResultList();
     }
 
     public static List getAllHousing(){
@@ -64,13 +65,39 @@ public class Agency {
         Iterator i = list.iterator();
         while(i.hasNext()){
             Housing hou = (Housing) i.next();
-            System.out.println(hou.getFlatType() + " of " +
+            System.out.print(hou.getFlatType() + " of " +
                     hou.getSurface() + "m² in " +
                     hou.getAddress() + " " +
                     hou.getDistrict().getDistrict() + " " +
                     hou.getDistrict().getTown().getName() + " for " +
                     hou.getRentPrice() + "€ "
             );
+            if(hou.getHosts() != null){
+                Person per = hou.getHosts();
+                System.out.println("occupied by " + per.getFirstName() + " " + per.getLastName());
+            }
+            else
+                System.out.println("EMPTY");
         }
+    }
+
+    public static void registerPerson(String firstName, String lastName, java.sql.Date birthDate, String numTel){
+        Person pers = new Person(firstName, lastName, birthDate, numTel);
+        getEM().persist(pers);
+    }
+
+    public static void registerDistrict(String name, City town){
+        District dist = new District(name, town);
+        getEM().persist(dist);
+    }
+
+    public static void registerCity(String name, Integer population, Double agencyDistance){
+        City town = new City(name, population, agencyDistance);
+        getEM().persist(town);
+    }
+
+    public static void registerHousing(District dist, Double rentPrice, Double surface, String address, Person hosts, Type type){
+        Housing hous = new Housing(dist, rentPrice, surface, address, hosts, type);
+        getEM().persist(hous);
     }
 }
