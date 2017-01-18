@@ -9,6 +9,6 @@ public enum Type {
     Double flatRate;
 
     Type(Double flatRate){
-
+        this.flatRate = flatRate;
     }
 }

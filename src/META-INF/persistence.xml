@@ -6,13 +6,14 @@
         <class>com.model.Housing</class>
         <class>com.model.Person</class>
         <class>com.model.City</class>
+        <class>com.model.District</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1/loo_tpnote_location?useSSL=false"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="ju"/>
             <property name="hibernate.connection.password" value="azerty"/>
             <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
