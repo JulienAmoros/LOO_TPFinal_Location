@@ -69,6 +69,7 @@ public class Agency {
 
     public static void rent(Housing hou, Person per){
         hou.rent(per);
+        BDDController.commit();
     }
 
     public static void printFlatList(List<Housing> list){

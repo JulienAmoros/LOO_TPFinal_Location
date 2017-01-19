@@ -1,5 +1,8 @@
 package com.view;
 
+import com.controller.BDDController;
+import com.model.City;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,16 +19,16 @@ public class HViewTown {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                try {
+                    City city = new City(nameTextField.getText(),Integer.parseInt(populationTextField.getText()),Double.parseDouble(distanceTextField.getText()));
+                    BDDController.persist(city);
+                    BDDController.commit();
+                    JOptionPane.showMessageDialog(null, "Town created successfully","Information",JOptionPane.INFORMATION_MESSAGE);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Town creation failed","Error",JOptionPane.ERROR_MESSAGE);
+                }
 
-
-
-
-
-
-
-                JOptionPane jop1;
-                jop1 = new JOptionPane();
-                jop1.showMessageDialog(null, "Town created sucessfully","Information",JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }

@@ -1,10 +1,13 @@
 package com.model;
 
+import com.controller.BDDController;
+
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * @author JuAmo_000
@@ -73,5 +76,14 @@ public class Person {
     }
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public static List<Person> getAllPeople(){
+        return BDDController.createQuery("select people from Person people").getResultList();
+    }
+
+    @Override
+    public String toString() {
+        return firstName+" "+lastName;
     }
 }

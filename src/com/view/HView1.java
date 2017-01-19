@@ -81,9 +81,7 @@ public class HView1 extends JFrame{
         addDistrictButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                HViewDistrict hviewdistrict = new HViewDistrict();
-                HViewDistrict.launch();
+                controller.startNewDistrict();
             }
         });
 
@@ -101,10 +99,7 @@ public class HView1 extends JFrame{
         registerPersonOnHousingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-                HViewRegister hviewregister = new HViewRegister();
-                HViewRegister.launch();
+                controller.startRegistering();
             }
         });
     }

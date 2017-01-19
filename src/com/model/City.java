@@ -17,29 +17,29 @@ public class City {
     public City() {
     }
 
-    public City(String nom, Integer inhabitants, Double agencyDistance) {
-        this.name = nom;
-        this.inhabitants = inhabitants;
+    public City(String name, int numPeople, double agencyDistance) {
+        this.name = name;
+        this.numPeople = numPeople;
         this.agencyDistance = agencyDistance;
     }
 
     // Attributes
     @Basic
-    private Integer inhabitants;
+    private int numPeople;
     @Basic
-    private Double agencyDistance;
+    private double agencyDistance;
     @Id
     private String name;
 
     // Accessors
-    public Integer getInhabitants() {
-        return inhabitants;
+    public int getNumPeople() {
+        return numPeople;
     }
-    public void setInhabitants(Integer inhabitants) {
-        this.inhabitants = inhabitants;
+    public void setNumPeople(Integer inhabitants) {
+        this.numPeople = inhabitants;
     }
 
-    public Double getAgencyDistance() {
+    public double getAgencyDistance() {
         return agencyDistance;
     }
     public void setAgencyDistance(Double agencyDistance) {

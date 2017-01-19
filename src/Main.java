@@ -3,6 +3,7 @@ import com.controller.MainController;
 import com.model.*;
 import com.view.HView1;
 
+import javax.persistence.EntityManager;
 import java.sql.Date;
 
 /**
@@ -17,7 +18,6 @@ public class Main {
         MainController controller = new MainController(new Agency());
 
         HView1 hView1 = new HView1(controller);
-
         Agency.printFlatList(Agency.getEmptyHousing());
 
         //BDDController.close();

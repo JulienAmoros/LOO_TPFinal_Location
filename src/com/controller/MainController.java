@@ -1,9 +1,9 @@
 package com.controller;
 
-import com.model.Agency;
-import com.model.City;
-import com.model.District;
+import com.model.*;
+import com.view.HViewDistrict;
 import com.view.HViewHousing;
+import com.view.HViewRegister;
 
 /**
  * @author JuAmo_000
@@ -25,6 +25,18 @@ public class MainController {
     }
 
     public void startNewHousing(){
-        HViewHousing.launch(District.getDistricts(), City.getCities());
+        HViewHousing.launch(District.getDistricts());
+    }
+
+    public void startNewDistrict(){
+        HViewDistrict.launch(City.getCities());
+    }
+
+    public void startRegistering(){
+        HViewRegister.launch(Housing.getHousings(), Person.getAllPeople(),this);
+    }
+
+    public void setRegistering(Housing housing, Person person) {
+        Agency.rent(housing,person);
     }
 }

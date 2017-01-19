@@ -1,6 +1,9 @@
 package com.model;
 
+import com.controller.BDDController;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author JuAmo_000
@@ -28,13 +31,13 @@ public class Housing {
     private Double rentPrice;
     @Basic
     private Double surface;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Person hosts;
     @Basic
     private String address;
     @GeneratedValue
     @Id
     private Integer id;
-    @OneToOne(cascade = {CascadeType.ALL})
-    private Person hosts;
     @Enumerated(EnumType.ORDINAL)
     private Type flatType;
 
@@ -97,5 +100,14 @@ public class Housing {
     // Methods
     public void rent(Person pers){
         this.hosts = pers;
+    }
+
+    public static List<Housing> getHousings(){
+        return BDDController.createQuery("select housings from Housing housings where housings.hosts=null ").getResultList();
+    }
+
+    @Override
+    public String toString() {
+        return address +" "+ district + " @"+rentPrice +"€ surface : "+surface;
     }
 }

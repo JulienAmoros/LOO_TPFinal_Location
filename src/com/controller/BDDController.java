@@ -1,5 +1,8 @@
 package com.controller;
 
+import com.model.District;
+import com.model.Housing;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -47,4 +50,12 @@ public class BDDController {
         return em.createQuery(s);
     }
 
+    public static void merge(Object o) {
+        if (em.isOpen()) {
+            em.merge(o);
+        }
+        else{
+            throw new IllegalArgumentException("EntityManager is not open");
+        }
+    }
 }

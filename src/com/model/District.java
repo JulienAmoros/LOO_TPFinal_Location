@@ -54,11 +54,14 @@ public class District {
     }
 
     public static List<District> getDistricts(){
-        return BDDController.createQuery("select name from District district").getResultList();
+        return BDDController.createQuery("select district from District district").getResultList();
     }
 
     @Override
     public String toString() {
-        return name + " - "+town;
+        if (town != null) {
+            return name + " - " +town;
+        }
+        return name;
     }
 }

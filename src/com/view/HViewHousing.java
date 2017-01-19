@@ -22,12 +22,12 @@ public class HViewHousing {
     private JTextField rentTextField;
     private JTextField surfaceTextField;
     private JButton okButton;
-    private JComboBox citiesCombobox;
     private JComboBox districtComboBox;
     private JComboBox typeComboBox;
 
 
     public HViewHousing(List<District> districts) {
+
         for (District district :
                 districts) {
             districtComboBox.addItem(district);
@@ -37,7 +37,8 @@ public class HViewHousing {
                 Type.values()) {
             typeComboBox.addItem(type);
         }
-
+        districtComboBox.updateUI();
+        typeComboBox.updateUI();
 
         okButton.addActionListener(new ActionListener() {
             @Override
@@ -69,7 +70,7 @@ public class HViewHousing {
 //        frame.setVisible(true);
 //    }
 
-    public static void launch(List<District> districts, List<City> cities){
+    public static void launch(List<District> districts){
 
         JFrame frame = new JFrame("HViewHousing");
         frame.setContentPane(new HViewHousing(districts).panel1);
