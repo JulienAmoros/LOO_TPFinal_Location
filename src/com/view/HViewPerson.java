@@ -1,9 +1,13 @@
 package com.view;
 
+import com.controller.BDDController;
+import com.model.Person;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 /**
  * Created by Etudes on 19/01/2017.
@@ -57,16 +61,23 @@ public class HViewPerson extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                Date date=null;
+                try {
+                if (birthDateTextField.getText() != null) {
 
+                        date = Date.valueOf(birthDateTextField.getText());
 
+                }
 
+                Person newPerson = new Person(firstNameFormattedTextField.getText(),lastNameTextField.getText(),date ,phoneNumberTextField.getText());
+                BDDController.persist(newPerson);
+                BDDController.commit();
+                JOptionPane.showMessageDialog(null, "Person created sucessfully","Information",JOptionPane.INFORMATION_MESSAGE);
 
+                }catch (IllegalArgumentException e1){
+                    JOptionPane.showMessageDialog(null, "Date is in the wrong format","Error",JOptionPane.ERROR_MESSAGE);
+                }
 
-
-
-                JOptionPane jop1;
-                jop1 = new JOptionPane();
-                jop1.showMessageDialog(null, "Person created sucessfully","Information",JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.model;
 
+import com.controller.BDDController;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -7,44 +9,29 @@ import java.util.*;
  * Created by JuAmo_000 on 17/01/2017.
  */
 public class Agency {
-    static EntityManager em;
-
-    public static void closeAgency(){
-        em.getTransaction().commit();
-        em.close();
-    }
-
-    public static EntityManager getEM(){
-        if(em == null){
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceUnit");
-            em = emf.createEntityManager();
-            em.getTransaction().begin();
-        }
-        return em;
-    }
 
     public static List<Housing> getEmptyHousing(){
-        return getEM().createQuery("from Housing where hosts = null").getResultList();
+        return BDDController.createQuery("from Housing where hosts = null").getResultList();
     }
 
     public static List<Housing> getOccupiedHousing(){
-        return getEM().createQuery("from Housing where hosts != null").getResultList();
+        return BDDController.createQuery("from Housing where hosts != null").getResultList();
     }
 
     public static List<Housing> getAllHousing(){
-        return getEM().createQuery("from Housing").getResultList();
+        return BDDController.createQuery("from Housing").getResultList();
     }
 
     public static List<Person> getPerson(){
-        return getEM().createQuery("from Person").getResultList();
+        return BDDController.createQuery("from Person").getResultList();
     }
 
     public static List<District> getDistrict(){
-        return getEM().createQuery("from District").getResultList();
+        return BDDController.createQuery("from District").getResultList();
     }
 
     public static List<City> getTown(){
-        return getEM().createQuery("from City").getResultList();
+        return BDDController.createQuery("from City").getResultList();
     }
 
     public static List filterHousByDistrict(List<Housing> list, District dist){
@@ -106,21 +93,21 @@ public class Agency {
 
     public static void registerPerson(String firstName, String lastName, java.sql.Date birthDate, String numTel){
         Person pers = new Person(firstName, lastName, birthDate, numTel);
-        getEM().persist(pers);
+        BDDController.persist(pers);
     }
 
     public static void registerDistrict(String name, City town){
         District dist = new District(name, town);
-        getEM().persist(dist);
+        BDDController.persist(dist);
     }
 
     public static void registerCity(String name, Integer population, Double agencyDistance){
         City town = new City(name, population, agencyDistance);
-        getEM().persist(town);
+        BDDController.persist(town);
     }
 
     public static void registerHousing(District dist, Double rentPrice, Double surface, String address, Person hosts, Type type){
         Housing hous = new Housing(dist, rentPrice, surface, address, hosts, type);
-        getEM().persist(hous);
+        BDDController.persist(hous);
     }
 }

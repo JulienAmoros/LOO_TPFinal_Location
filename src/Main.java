@@ -1,3 +1,4 @@
+import com.controller.BDDController;
 import com.model.*;
 import com.view.HView1;
 
@@ -15,7 +16,7 @@ public class Main {
 
         Agency.printFlatList(Agency.getEmptyHousing());
 
-        Agency.closeAgency();
+        BDDController.close();
     }
 
     public static void initializeDB(){
@@ -34,9 +35,10 @@ public class Main {
         Housing housing2 = new Housing(district2, 121.0, 75.5, "16 Kuhačeva", null, Type.F1);
         Housing housing3 = new Housing(district3, 122.0, 120.5, "17 Kuhačeva", null, Type.studio);
 
-        Agency.getEM().persist(housing1);
-        Agency.getEM().persist(housing2);
-        Agency.getEM().persist(housing3);
-        Agency.getEM().persist(person2);
+        BDDController.persist(housing1);
+        BDDController.persist(housing2);
+        BDDController.persist(housing3);
+        BDDController.persist(person2);
+        BDDController.commit();
     }
 }

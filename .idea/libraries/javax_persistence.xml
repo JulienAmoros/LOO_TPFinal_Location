@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="javax.persistence">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../LOO/hibernate TP9/lib/javax.persistence.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
