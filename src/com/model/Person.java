@@ -7,7 +7,8 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 @Entity
 public class Person {

@@ -1,7 +1,8 @@
 package com.view;
 
 /**
- * Created by JuAmo_000 on 18/01/2017.
+ * @author JuAmo_000
+ * @since 18/01/2017.
  */
 public class MainView {
 }

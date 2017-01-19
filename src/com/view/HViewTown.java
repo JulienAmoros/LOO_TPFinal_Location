@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Etudes on 19/01/2017.
+ * @author Etudes
+ * @since 19/01/2017.
  */
 public class HViewTown {
 

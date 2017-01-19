@@ -1,4 +1,5 @@
 import com.controller.BDDController;
+import com.controller.MainController;
 import com.model.*;
 import com.view.HView1;
 
@@ -12,11 +13,14 @@ public class Main {
 
         //Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
         //initializeDB();
-        HView1 hView1 = new HView1();
+
+        MainController controller = new MainController(new Agency());
+
+        HView1 hView1 = new HView1(controller);
 
         Agency.printFlatList(Agency.getEmptyHousing());
 
-        BDDController.close();
+        //BDDController.close();
     }
 
     public static void initializeDB(){

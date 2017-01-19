@@ -4,9 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 public class BDDController {
     private static EntityManagerFactory emf=null;
@@ -28,6 +30,7 @@ public class BDDController {
 
     public static void close(){
         commit();
+        em.flush();
         em.close();
     }
 
@@ -43,4 +46,5 @@ public class BDDController {
     public static Query createQuery(String s){
         return em.createQuery(s);
     }
+
 }

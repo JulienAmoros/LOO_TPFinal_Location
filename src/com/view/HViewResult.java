@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Etudes on 19/01/2017.
+ * @author Etudes
+ * @since 19/01/2017.
  */
 public class HViewResult {
     private JList list1;

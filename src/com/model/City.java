@@ -1,11 +1,15 @@
 package com.model;
 
+import com.controller.BDDController;
+
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.List;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 @Entity
 public class City {
@@ -47,5 +51,14 @@ public class City {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static List<City> getCities(){
+        return BDDController.createQuery("select city from City city").getResultList();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

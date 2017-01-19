@@ -3,7 +3,8 @@ package com.model;
 import javax.persistence.*;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 @Entity
 public class Housing {

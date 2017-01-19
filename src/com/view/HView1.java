@@ -1,4 +1,6 @@
 package com.view;
+import com.controller.MainController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,9 +8,10 @@ import java.awt.event.ActionListener;
 
 
 /**
- * Created by Etudes on 19/01/2017.
+ * @author Etudes
+ * @since 19/01/2017.
  */
-public class HView1 {
+public class HView1 extends JFrame{
 
 
     private JPanel panel1;
@@ -20,28 +23,34 @@ public class HView1 {
     private JButton registerPersonOnHousingButton;
 
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("HView1");
-        frame.setContentPane(new HView1().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    public static void main(String[] args) {
+//        JFrame frame = new JFrame("HView1");
+//        frame.setContentPane(new HView1().panel1);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        Dimension dim = new Dimension(400,600);
+//        frame.setPreferredSize(dim);
+//        frame.pack();
+//        frame.setVisible(true);
+//    }
+//
+
+
+
+
+
+    public HView1(MainController controller) {
+        setContentPane(panel1);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dim = new Dimension(400,600);
-        frame.setPreferredSize(dim);
-        frame.pack();
-        frame.setVisible(true);
-    }
+        setPreferredSize(dim);
+        pack();
+        setVisible(true);
 
-
-
-
-
-
-    public HView1() {
         addPersonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-               HViewPerson hviewpersonn = new HViewPerson();
-               hviewpersonn.launch();
+               HViewPerson.launch();
 
 
             }
@@ -52,10 +61,7 @@ public class HView1 {
         appHousingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                HViewHousing hviewhousing = new HViewHousing();
-                hviewhousing.launch();
-
+                controller.startNewHousing();
             }
         });
 
@@ -66,7 +72,7 @@ public class HView1 {
 
 
                 HViewTown hviewtown = new HViewTown();
-                hviewtown.launch();
+                HViewTown.launch();
 
             }
         });
@@ -77,7 +83,7 @@ public class HView1 {
             public void actionPerformed(ActionEvent e) {
 
                 HViewDistrict hviewdistrict = new HViewDistrict();
-                hviewdistrict.launch();
+                HViewDistrict.launch();
             }
         });
 
@@ -87,7 +93,7 @@ public class HView1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 HViewCheck hviewcheck = new HViewCheck();
-                hviewcheck.launch();
+                HViewCheck.launch();
             }
         });
 
@@ -98,7 +104,7 @@ public class HView1 {
 
 
                 HViewRegister hviewregister = new HViewRegister();
-                hviewregister.launch();
+                HViewRegister.launch();
             }
         });
     }

@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 
 /**
- * Created by Etudes on 19/01/2017.
+ * @author Etudes
+ * @since 19/01/2017.
  */
 public class HViewPerson extends JFrame {
 
@@ -63,18 +64,19 @@ public class HViewPerson extends JFrame {
 
                 Date date=null;
                 try {
-                if (birthDateTextField.getText() != null) {
+                    if (birthDateTextField.getText() != null) {
 
                         date = Date.valueOf(birthDateTextField.getText());
 
-                }
+                    }
 
-                Person newPerson = new Person(firstNameFormattedTextField.getText(),lastNameTextField.getText(),date ,phoneNumberTextField.getText());
-                BDDController.persist(newPerson);
-                BDDController.commit();
-                JOptionPane.showMessageDialog(null, "Person created sucessfully","Information",JOptionPane.INFORMATION_MESSAGE);
+                    Person newPerson = new Person(firstNameFormattedTextField.getText(),lastNameTextField.getText(),date ,phoneNumberTextField.getText());
+                    BDDController.persist(newPerson);
+                    BDDController.commit();
+                    JOptionPane.showMessageDialog(null, "Person created sucessfully","Information",JOptionPane.INFORMATION_MESSAGE);
 
                 }catch (IllegalArgumentException e1){
+                    e1.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Date is in the wrong format","Error",JOptionPane.ERROR_MESSAGE);
                 }
 

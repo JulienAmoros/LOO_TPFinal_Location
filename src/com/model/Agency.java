@@ -2,11 +2,11 @@ package com.model;
 
 import com.controller.BDDController;
 
-import javax.persistence.*;
 import java.util.*;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 public class Agency {
 
@@ -78,7 +78,7 @@ public class Agency {
             System.out.print(hou.getFlatType() + " of " +
                     hou.getSurface() + "m² in " +
                     hou.getAddress() + " " +
-                    hou.getDistrict().getDistrict() + " " +
+                    hou.getDistrict().getName() + " " +
                     hou.getDistrict().getTown().getName() + " for " +
                     hou.getRentPrice() + "€ "
             );

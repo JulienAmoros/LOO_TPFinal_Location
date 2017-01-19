@@ -1,9 +1,13 @@
 package com.model;
 
+import com.controller.BDDController;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
- * Created by JuAmo_000 on 18/01/2017.
+ * @author JuAmo_000
+ * @since 18/01/2017.
  */
 @Entity
 public class District {
@@ -11,14 +15,14 @@ public class District {
     public District() {
     }
 
-    public District(String district, City town) {
-        this.district = district;
+    public District(String name, City town) {
+        this.name = name;
         this.town = town;
     }
 
     // Attributes
     @Basic
-    private String district;
+    private String name;
     @OneToOne(cascade = {CascadeType.ALL})
     private City town;
     @GeneratedValue
@@ -26,11 +30,11 @@ public class District {
     private Integer id;
 
     // Accessors
-    public String getDistrict() {
-        return district;
+    public String getName() {
+        return name;
     }
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setName(String district) {
+        this.name = district;
     }
 
 
@@ -47,5 +51,14 @@ public class District {
     }
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public static List<District> getDistricts(){
+        return BDDController.createQuery("select name from District district").getResultList();
+    }
+
+    @Override
+    public String toString() {
+        return name + " - "+town;
     }
 }
