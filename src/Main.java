@@ -1,4 +1,6 @@
 import com.model.*;
+import com.view.HView1;
+
 import java.sql.Date;
 
 /**
@@ -9,6 +11,8 @@ public class Main {
 
         //Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
         //initializeDB();
+        HView1 hView1 = new HView1();
+
         Agency.printFlatList(Agency.getEmptyHousing());
 
         Agency.closeAgency();
