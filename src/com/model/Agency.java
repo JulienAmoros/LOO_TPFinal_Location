@@ -23,19 +23,31 @@ public class Agency {
         return em;
     }
 
-    public static List getEmptyHousing(){
+    public static List<Housing> getEmptyHousing(){
         return getEM().createQuery("from Housing where hosts = null").getResultList();
     }
 
-    public static List getOccupiedHousing(){
+    public static List<Housing> getOccupiedHousing(){
         return getEM().createQuery("from Housing where hosts != null").getResultList();
     }
 
-    public static List getAllHousing(){
+    public static List<Housing> getAllHousing(){
         return getEM().createQuery("from Housing").getResultList();
     }
 
-    public static List filterByDistrict(List<Housing> list, District dist){
+    public static List<Person> getPerson(){
+        return getEM().createQuery("from Person").getResultList();
+    }
+
+    public static List<District> getDistrict(){
+        return getEM().createQuery("from District").getResultList();
+    }
+
+    public static List<City> getTown(){
+        return getEM().createQuery("from City").getResultList();
+    }
+
+    public static List filterHousByDistrict(List<Housing> list, District dist){
         if(list == null)
             list = getAllHousing();
         List res = new ArrayList();
@@ -46,12 +58,23 @@ public class Agency {
         return res;
     }
 
-    public static List filterByTown(List<Housing> list, City city){
+    public static List filterHousByTown(List<Housing> list, City city){
         if(list == null)
             list = getAllHousing();
         List res = new ArrayList();
         for(Housing hous : list){
             if(hous.getDistrict().getTown() == city)
+                res.add(hous);
+        }
+        return res;
+    }
+
+    public static List filterHousByType(List<Housing> list, Type type){
+        if(list == null)
+            list = getAllHousing();
+        List res = new ArrayList();
+        for(Housing hous : list){
+            if(hous.getFlatType() == type)
                 res.add(hous);
         }
         return res;
