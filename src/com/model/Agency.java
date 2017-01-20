@@ -76,13 +76,7 @@ public class Agency {
         Iterator i = list.iterator();
         while(i.hasNext()){
             Housing hou = (Housing) i.next();
-            System.out.print(hou.getFlatType() + " of " +
-                    hou.getSurface() + "m² in " +
-                    hou.getAddress() + " " +
-                    hou.getDistrict().getName() + " " +
-                    hou.getDistrict().getTown().getName() + " for " +
-                    hou.getRentPrice() + "€ "
-            );
+            System.out.print(hou.toString());
             if(hou.getHosts() != null){
                 Person per = hou.getHosts();
                 System.out.println("occupied by " + per.getFirstName() + " " + per.getLastName());
