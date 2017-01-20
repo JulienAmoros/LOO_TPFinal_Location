@@ -2,6 +2,7 @@ package com.view;
 
 import com.controller.MainController;
 import com.model.City;
+import com.model.Type;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,32 +15,31 @@ import java.util.List;
  * @since 19/01/2017.
  */
 public class HViewCheck {
-    private JComboBox cityComboBox;
+    private JComboBox typeComboBox;
     private JPanel panel1;
     private JButton checkAvailableButton;
     private JButton checkOccupiedButton;
 
 
-    public HViewCheck(java.util.List<City> cities, MainController controller) {
-        for (City city :
-                cities) {
-            cityComboBox.addItem(city);
-            System.out.println(city);
+    public HViewCheck(MainController controller) {
+        for (Type type :
+                Type.values()) {
+            typeComboBox.addItem(type);
         }
-        cityComboBox.updateUI();
+        typeComboBox.updateUI();
 
         checkAvailableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                controller.checkAvailable((City)cityComboBox.getSelectedItem());
+                controller.checkAvailable((Type) typeComboBox.getSelectedItem());
 
             }
         });
         checkOccupiedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.checkOccupied((City)cityComboBox.getSelectedItem());
+                controller.checkOccupied((Type) typeComboBox.getSelectedItem());
 
             }
         });
@@ -55,10 +55,10 @@ public class HViewCheck {
 
 
 
-    public static void launch(List<City> cities, MainController controller){
+    public static void launch(MainController controller){
 
         JFrame frame = new JFrame("HViewCheck");
-        frame.setContentPane(new HViewCheck(cities, controller).panel1);
+        frame.setContentPane(new HViewCheck( controller).panel1);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Dimension dim = new Dimension(300,500);
         frame.setPreferredSize(dim);

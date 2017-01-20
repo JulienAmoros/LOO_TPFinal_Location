@@ -27,12 +27,12 @@ public class MainController {
     }
 
     public void startChecking(){
-        HViewCheck.launch(City.getCities(), this);
+        HViewCheck.launch(this);
     }
 
-    public void checkAvailable(City city){
+    public void checkAvailable(Type city){
         HViewResult.launch(Housing.getAvailable(city));
     }
 
-    public void checkOccupied(City city) {HViewResult.launch(Housing.getOccupied(city));}
+    public void checkOccupied(Type city) {HViewResult.launch(Housing.getOccupied(city));}
 }

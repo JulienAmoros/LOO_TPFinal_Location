@@ -106,17 +106,17 @@ public class Housing {
         return BDDController.createQuery("select housings from Housing housings where housings.hosts=null ").getResultList();
     }
 
-    public static List<Housing> getAvailable(City city){
+    public static List<Housing> getAvailable(Type type){
         Query query = BDDController.createQuery("select housings from Housing  housings where housings.hosts=null " +
-                "and housings.district.town.name =:cityName");
-        query.setParameter("cityName",city.getName());
+                "and housings.flatType=:flattype");
+        query.setParameter("flattype",type);
         return query.getResultList();
     }
 
-    public static List<Housing> getOccupied(City city){
+    public static List<Housing> getOccupied(Type type){
         Query query = BDDController.createQuery("select housings from Housing  housings where housings.hosts!=null " +
-                "and housings.district.town.name =:cityName");
-        query.setParameter("cityName",city.getName());
+                "and housings.flatType=:flattype");
+        query.setParameter("flattype",type);
         return query.getResultList();
     }
 

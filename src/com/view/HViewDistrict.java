@@ -26,7 +26,6 @@ public class HViewDistrict {
         for (City city :
                 cities) {
             cityComboBox.addItem(city);
-            System.out.println(city);
         }
         cityComboBox.updateUI();
         okButton.addActionListener(new ActionListener() {
