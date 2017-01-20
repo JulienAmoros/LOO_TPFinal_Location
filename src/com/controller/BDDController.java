@@ -21,6 +21,7 @@ public class BDDController {
     public static boolean commit(){
         if (em.isOpen()&&em.getTransaction().isActive()) {
             em.getTransaction().commit();
+            em.getTransaction().begin();
             return true;
         }
         return false;

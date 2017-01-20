@@ -121,9 +121,6 @@ public class Housing {
     }
 
 
-
-
-
     @Override
     public String toString() {
         return address +" "+ district + " @"+rentPrice +"€ surface : "+surface;

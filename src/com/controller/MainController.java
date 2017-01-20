@@ -31,8 +31,8 @@ public class MainController {
     }
 
     public void checkAvailable(Type city){
-        HViewResult.launch(Housing.getAvailable(city));
+        HViewResult.launch(Housing.getAvailable(city), true);
     }
 
-    public void checkOccupied(Type city) {HViewResult.launch(Housing.getOccupied(city));}
+    public void checkOccupied(Type city) {HViewResult.launch(Housing.getOccupied(city),false);}
 }

@@ -23,18 +23,6 @@ public class HView1 extends JFrame{
     private JButton registerPersonOnHousingButton;
 
 
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("HView1");
-//        frame.setContentPane(new HView1().panel1);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        Dimension dim = new Dimension(400,600);
-//        frame.setPreferredSize(dim);
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
-//
-
-
 
     public HView1(MainController controller) {
         setContentPane(panel1);
@@ -68,7 +56,6 @@ public class HView1 extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 HViewTown.launch();
-
             }
         });
 

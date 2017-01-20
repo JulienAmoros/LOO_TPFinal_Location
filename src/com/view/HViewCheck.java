@@ -43,14 +43,6 @@ public class HViewCheck {
         });
     }
 
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("HViewCheck");
-//        frame.setContentPane(new HViewCheck().panel1);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
-
 
 
     public static void launch(MainController controller){

@@ -12,14 +12,12 @@ import java.sql.Date;
 public class Main {
     public static void main(final String[] args) throws Exception {
 
-        // TODO: 20/01/2017 je sais c'est mal je modifie le modele dans la vue
 
         MainController controller = new MainController();
 
         HView1 hView1 = new HView1(controller);
         Agency.printFlatList(Agency.getEmptyHousing());
 
-        //BDDController.close();
     }
 
     public static void initializeDB(){
