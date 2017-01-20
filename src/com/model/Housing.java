@@ -106,6 +106,24 @@ public class Housing {
         return BDDController.createQuery("select housings from Housing housings where housings.hosts=null ").getResultList();
     }
 
+    public static List<Housing> getAvailable(City city){
+        Query query = BDDController.createQuery("select housings from Housing  housings where housings.hosts=null " +
+                "and housings.district.town.name =:cityName");
+        query.setParameter("cityName",city.getName());
+        return query.getResultList();
+    }
+
+    public static List<Housing> getOccupied(City city){
+        Query query = BDDController.createQuery("select housings from Housing  housings where housings.hosts!=null " +
+                "and housings.district.town.name =:cityName");
+        query.setParameter("cityName",city.getName());
+        return query.getResultList();
+    }
+
+
+
+
+
     @Override
     public String toString() {
         return address +" "+ district + " @"+rentPrice +"€ surface : "+surface;

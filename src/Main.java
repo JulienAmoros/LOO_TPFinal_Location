@@ -12,10 +12,12 @@ import java.sql.Date;
 public class Main {
     public static void main(final String[] args) throws Exception {
 
+        // TODO: 20/01/2017 je sais c'est mal je modifie le modele dans la vue
+
         //Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
         //initializeDB();
 
-        MainController controller = new MainController(new Agency());
+        MainController controller = new MainController();
 
         HView1 hView1 = new HView1(controller);
         Agency.printFlatList(Agency.getEmptyHousing());
@@ -45,4 +47,6 @@ public class Main {
         BDDController.persist(person2);
         BDDController.commit();
     }
+
+
 }

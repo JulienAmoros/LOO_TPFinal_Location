@@ -1,5 +1,7 @@
 package com.view;
+import com.controller.BDDController;
 import com.controller.MainController;
+import com.model.City;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,8 +38,6 @@ public class HView1 extends JFrame{
 
 
 
-
-
     public HView1(MainController controller) {
         setContentPane(panel1);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,9 +69,6 @@ public class HView1 extends JFrame{
         addTownButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-                HViewTown hviewtown = new HViewTown();
                 HViewTown.launch();
 
             }
@@ -90,8 +87,7 @@ public class HView1 extends JFrame{
         checkHousingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HViewCheck hviewcheck = new HViewCheck();
-                HViewCheck.launch();
+                controller.startChecking();
             }
         });
 

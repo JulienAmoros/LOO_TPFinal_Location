@@ -33,7 +33,6 @@ public class BDDController {
 
     public static void close(){
         commit();
-        em.flush();
         em.close();
     }
 
@@ -50,6 +49,7 @@ public class BDDController {
         return em.createQuery(s);
     }
 
+
     public static void merge(Object o) {
         if (em.isOpen()) {
             em.merge(o);
@@ -58,4 +58,6 @@ public class BDDController {
             throw new IllegalArgumentException("EntityManager is not open");
         }
     }
+
+
 }
