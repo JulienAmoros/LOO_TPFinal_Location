@@ -3,19 +3,16 @@ import com.controller.MainController;
 import com.model.*;
 import com.view.HView1;
 
-import javax.persistence.EntityManager;
 import java.sql.Date;
 
 /**
- * Created by JuAmo_000 on 17/01/2017.
+ * @author JuAmo_000
+ * @since 17/01/2017.
  */
 public class Main {
     public static void main(final String[] args) throws Exception {
 
         // TODO: 20/01/2017 je sais c'est mal je modifie le modele dans la vue
-
-        //Agency.printFlatList(Agency.filterByTown(Agency.getAllHousing(), Agency.getEM().find(City.class, "Zagreb")));
-        //initializeDB();
 
         MainController controller = new MainController();
 

@@ -1,7 +1,6 @@
 package com.view;
 
 import com.controller.BDDController;
-import com.model.City;
 import com.model.District;
 import com.model.Housing;
 import com.model.Type;

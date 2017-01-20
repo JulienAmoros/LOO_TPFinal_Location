@@ -1,14 +1,12 @@
 package com.view;
 
 import com.controller.MainController;
-import com.model.City;
 import com.model.Type;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 /**
  * @author Etudes

@@ -31,7 +31,7 @@ public class HViewPerson extends JFrame {
     public static void main(String[] args) {
         JFrame frame = new JFrame("HViewPerson");
         frame.setContentPane(new HViewPerson().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }

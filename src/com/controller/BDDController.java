@@ -1,24 +1,19 @@
 package com.controller;
 
-import com.model.District;
-import com.model.Housing;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import java.util.List;
 
 /**
  * @author JuAmo_000
  * @since 17/01/2017.
  */
 public class BDDController {
-    private static EntityManagerFactory emf=null;
     private static EntityManager em=null;
 
     static {
-        emf = Persistence.createEntityManagerFactory("PersistenceUnit");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceUnit");
         em = emf.createEntityManager();
         em.getTransaction().begin();
     }

@@ -1,7 +1,5 @@
 package com.view;
-import com.controller.BDDController;
 import com.controller.MainController;
-import com.model.City;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +38,7 @@ public class HView1 extends JFrame{
 
     public HView1(MainController controller) {
         setContentPane(panel1);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Dimension dim = new Dimension(400,600);
         setPreferredSize(dim);
         pack();

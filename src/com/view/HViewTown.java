@@ -36,7 +36,7 @@ public class HViewTown {
     public static void main(String[] args) {
         JFrame frame = new JFrame("HViewTown");
         frame.setContentPane(new HViewTown().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
