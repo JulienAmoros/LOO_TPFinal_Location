@@ -16,7 +16,7 @@ public class Main {
         MainController controller = new MainController();
 
         HView1 hView1 = new HView1(controller);
-        Agency.printFlatList(Agency.getEmptyHousing());
+        //Agency.printFlatList(Agency.getEmptyHousing());
 
     }
 
